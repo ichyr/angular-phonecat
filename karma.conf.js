@@ -20,11 +20,11 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['Chrome'],
 
     plugins: [
       'karma-chrome-launcher',
-      'karma-firefox-launcher',
+      'karma-coverage',
       'karma-jasmine'
     ],
 
@@ -37,13 +37,14 @@ module.exports = function(config) {
       // source files, that you wanna generate coverage for
       // do not include tests or libraries
       // (these files will be instrumented by Istanbul)
-      'src/**/*.js': ['coverage']
+      '**/*.js': ['coverage']
     },
 
     // optionally, configure the reporter
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      type : 'lcovonly',
+      dir : '../coverage/',
+      subdir: '.'
     },
 
   });
